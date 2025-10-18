@@ -8,8 +8,9 @@ client = Mistral(api_key=mistral_api_key)
 
 def run_executor(task_prompt):
     messages = [{"role": "user", "content": task_prompt}]
-    chat_response = client.chat(
+    chat_response = client.chat_complete(
         model="mistral-small",
         messages=messages
     )
     return chat_response.choices[0].message.content
+
