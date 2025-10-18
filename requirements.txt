@@ -2,5 +2,6 @@ flask
 flask-limiter
 python-dotenv
 pyjwt
-mistralai
+mistralai==0.4.2
 werkzeug
+
