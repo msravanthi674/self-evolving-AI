@@ -1,24 +1,15 @@
-from mistralai import Mistral # type: ignore
-from dotenv import load_dotenv # type: ignore
+from mistralai.client import MistralClient
 import os
+from dotenv import load_dotenv
 
 load_dotenv()
 mistral_api_key = os.getenv("MISTRAL_API_KEY")
+client = MistralClient(api_key=mistral_api_key)
 
 def run_executor(task_prompt):
-    """
-    Executor agent generates initial solution based on task prompt.
-    """
-    client = Mistral(api_key=mistral_api_key)
-    
+    messages = [{"role": "user", "content": task_prompt}]
     chat_response = client.chat.complete(
         model="mistral-small-latest",
-        messages=[
-            {
-                "role": "user",
-                "content": task_prompt
-            }
-        ]
+        messages=messages
     )
-    
     return chat_response.choices[0].message.content
