@@ -13,4 +13,3 @@ def run_executor(task_prompt):
         messages=messages
     )
     return chat_response.choices[0].message.content
-
