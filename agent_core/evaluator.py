@@ -12,7 +12,7 @@ def run_evaluator(solution_text):
         "and a score (0-10):\nSolution:\n" + solution_text
     )
     messages = [{"role": "user", "content": prompt}]
-    chat_response = client.chat(
+    chat_response = client.chat_complete(
         model="mistral-small",
         messages=messages
     )
