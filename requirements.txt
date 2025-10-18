@@ -2,4 +2,5 @@ flask
 flask-limiter
 python-dotenv
 pyjwt
+mistralai
 werkzeug
