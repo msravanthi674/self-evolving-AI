@@ -12,7 +12,7 @@ def run_improver(solution_text, feedback_text):
         f"Solution:\n{solution_text}\nFeedback:\n{feedback_text}"
     )
     messages = [{"role": "user", "content": prompt}]
-    chat_response = client.chat(
+    chat_response = client.chat_complete(
         model="mistral-small",
         messages=messages
     )
