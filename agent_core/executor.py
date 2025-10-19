@@ -1,4 +1,5 @@
-from mistralai import Mistral
+from mistralai.client import MistralClient
+
 import os
 from dotenv import load_dotenv
 
@@ -13,4 +14,5 @@ def run_executor(task_prompt):
         messages=messages
     )
     return chat_response.choices[0].message.content
+
 
