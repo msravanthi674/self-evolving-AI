@@ -1,4 +1,5 @@
-from mistralai import Mistral
+from mistralai.client import MistralClient
+
 import os
 from dotenv import load_dotenv
 
@@ -17,4 +18,5 @@ def run_improver(solution_text, feedback_text):
         messages=messages
     )
     return chat_response.choices[0].message.content
+
 
