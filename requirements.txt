@@ -1,8 +1,7 @@
 flask
 flask-limiter
-python-dotenv
 pyjwt
-mistralai==0.4.2
+python-dotenv
+mistralai>=1.1.0
 werkzeug
 streamlit
-
