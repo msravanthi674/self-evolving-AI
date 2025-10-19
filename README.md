@@ -1,5 +1,5 @@
 # 🚀 Self-Evolving AI Agent  
-a multi-agent system that autonomously generates, evaluates, and improves solutions using Mistral AI’s powerful LLM in an iterative self-improvement loop.
+A multi-agent system that autonomously generates, evaluates, and improves solutions using Mistral AI’s powerful LLM in an iterative self-improvement loop.
 
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io)  [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)   [![Mistral AI](https://img.shields.io/badge/Powered%20by-Mistral%20AI-8A2BE2?logo=openai&logoColor=white)](https://mistral.ai)   [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  
 
