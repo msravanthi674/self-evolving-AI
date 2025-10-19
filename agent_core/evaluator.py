@@ -1,27 +1,27 @@
+from mistralai import Mistral
 import os
 from dotenv import load_dotenv
 
-try:
-    from mistralai.client import MistralClient
-except ImportError:
-    from mistralai import Mistral as MistralClient
-
+# Load environment variables
 load_dotenv()
 api_key = os.getenv("MISTRAL_API_KEY")
-client = MistralClient(api_key=api_key)
+
+client = Mistral(api_key=api_key)
 
 def run_evaluator(solution_text):
     """
-    Evaluates a generated solution and provides feedback with a score.
+    Evaluator agent that reviews a solution and gives feedback with a numeric score.
     """
-    prompt = f"Provide constructive feedback and a score (0–10) for the following solution:\n{solution_text}"
-    messages = [{"role": "user", "content": prompt}]
+    feedback_prompt = (
+        f"Evaluate the following solution for quality, correctness, "
+        f"and clarity. Give actionable feedback and a score out of 10.\n\n"
+        f"Solution:\n{solution_text}"
+    )
 
-    if hasattr(client, "chat") and hasattr(client.chat, "complete"):
-        response = client.chat.complete(model="mistral-small-latest", messages=messages)
-    elif hasattr(client, "chat_complete"):
-        response = client.chat_complete(model="mistral-small", messages=messages)
-    else:
-        response = client.chat(model="mistral-small", messages=messages)
-    
-    return response.choices[0].message.content
+    chat_response = client.chat.complete(
+        model="mistral-small-latest",
+        messages=[
+            {"role": "user", "content": feedback_prompt}
+        ]
+    )
+    return chat_response.choices[0].message.content
